@@ -1,0 +1,68 @@
+.container {
+	display: flex;
+	justify-content: center;  /* Horizontally center the content inside the container */
+	align-items: center;      /* Vertically center the content inside the container */
+	
+	background-color: black;  /* Set the background color */
+	width: 500px;             /* Set the container width */
+	height: 500px;            /* Set the container height */
+	padding: 5px;             /* Add padding inside the container */
+	
+	margin: 100px auto;       /* Center the container horizontally on the page */
+	
+	position: absolute;       /* Use absolute positioning for full page centering */
+	top: 50%;                 /* Move the container to the vertical center */
+	left: 50%;                /* Move the container to the horizontal center */
+	transform: translate(-50%, -50%); /* Offset by half of its own width and height to ensure it is centered */
+  }
+  
+	
+.email{
+	padding:10px;
+}
+.password{
+	padding:3px;
+}
+
+.email{
+	
+	width:300px;
+	height:30px;
+	margin-top:10px;
+	margin-bottom:30px;
+	margin-left:100px;
+}
+
+.password{
+	width:315px;
+	height:37px;
+	margin-left:100px;
+	margin-top:0px;
+	margin-bottom:50px;
+}
+
+.login{
+	width:300px;
+	height:30px;
+	/* margin-left:100px; */
+	margin-top:50px;
+	margin-left:120px;
+}
+
+.extra{
+	display:flex;
+	
+}
+
+.signup{
+	margin-top:50px;
+	margin-left:100px;
+}
+
+.forgot-password{
+	margin-top:50px;
+	margin-left:130px;
+}
+
+
+

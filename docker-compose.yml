@@ -1,0 +1,43 @@
+
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: react-postgres-signup-backend-db-1
+    environment:
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: user
+      POSTGRES_USER: postgres
+    ports:
+      - "5050:5432"  # Expose host port 5050 to container port 5432
+    networks:
+      - my-network
+
+  backend:
+    build: ./react-postgres-crud-backend  # Path to your backend Dockerfile
+    container_name: backend-app
+    environment:
+      DB_HOST: react-postgres-signup-backend-db-1  # Name of the PostgreSQL container
+      DB_PORT: 5432  # PostgreSQL internal port
+      DB_USER: postgres
+      DB_PASSWORD: 12345678
+      DB_NAME: user
+      PORT: 4000  # Backend server port
+    ports:
+      - "4002:4000"  # Expose port 4000 to host
+    depends_on:
+      - postgres  # Ensure the backend waits for the PostgreSQL container
+    networks:
+      - my-network
+
+  frontend:
+    build: ./react-postgres-crud-frontend  # Path to your frontend Dockerfile
+    container_name: frontend-app
+    ports:
+      - "3002:80"  # Expose port 80 (from Nginx) to port 3002 on your host machine
+    networks:
+      - my-network
+
+networks:
+  my-network:  # A custom network to ensure the containers can communicate with each other
+    driver: bridge
